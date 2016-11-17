@@ -2,6 +2,7 @@ import Badge from "./Badge";
 import Seperator from "../helpers/Seperator"; 
 import {ScrollView, Text, View, TouchableHighlight, StyleSheet} from 'react-native';
 import React, {Component} from 'react'; 
+import WEB_VIEW from "../helpers/WebView"; 
 
 var styles = StyleSheet.create({
     container: {
@@ -31,7 +32,11 @@ var styles = StyleSheet.create({
 
 export default class Repositories extends Component {
 	openPage(url){
-		console.log("this url is ", url); 
+		this.props.navigator.push({
+			component: WEB_VIEW, 
+			title: "Web View",
+			passProps: {url}
+		});
 	}
 	render(){
 		var repos = this.props.repos; 
