@@ -1,4 +1,5 @@
-const Main = require("./App/Components/Main"); 
+import Main from "./App/Components/Main";
+//const Main = require(); 
 
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, NavigatorIOS, View } from 'react-native';

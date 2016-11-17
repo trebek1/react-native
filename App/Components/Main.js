@@ -1,8 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native'; 
 import React, {Component} from 'React'; 
 
-
-
 const styles = StyleSheet.create({
 	mainContainer: {
 		flex: 1, 
@@ -33,7 +31,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-class Main extends Component{
+export default class Main extends Component{
 	render(){
 		return(
 			<View style={styles.mainContainer}>
@@ -43,5 +41,3 @@ class Main extends Component{
 		
 	}
 };
-
-module.exports = Main; 
