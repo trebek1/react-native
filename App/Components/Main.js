@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native'; 
+import {View, Text, StyleSheet, TextInput, TouchableHighlight, ActivityIndicatorIOS} from 'react-native'; 
 import React, {Component} from 'React'; 
 
 const styles = StyleSheet.create({
@@ -28,14 +28,64 @@ const styles = StyleSheet.create({
 		marginTop: 10, 
 		alignSelf: "stretch", 
 		justifyContent: "center"
+	}, 
+	button: {
+		height: 45,
+		flexDirection: "row",
+		backgroundColor: "white", 
+		borderColor: "white", 
+		borderWidth: 1, 
+		borderRadius: 8, 
+		marginBottom: 10, 
+		marginTop: 10, 
+		alignSelf: "stretch",
+		justifyContent: "center"
 	}
 });
 
 export default class Main extends Component{
+
+	constructor(props){
+		super(props);
+		// if you want to access this.props in constructor, pass it props 
+		this.state = {
+			username: "",
+			isLoading: false, 
+			error: false
+		}
+	}
+
+	handleChange(event){
+		this.setState({
+			username: event.nativeEvent.text
+		});
+	}
+
+	handleSubmit(){
+		// update indicator IOS spinner
+		this.setState({
+			isLoading: true
+		});
+		console.log("SUBMIT ", this.state.username); 
+		// fetch data from github 
+		// reroute us to the next route passing in github info 
+	}
+
 	render(){
 		return(
 			<View style={styles.mainContainer}>
-				<Text> Testing the router </Text>
+				<Text style={styles.title}>Search for a Github User </Text>
+				<TextInput 
+					style={styles.searchInput}
+					value={this.state.username}
+					onChange={this.handleChange.bind(this)}/>
+
+					<TouchableHighlight
+						style={styles.button}
+						onPress={this.handleSubmit.bind(this)}
+						underlayColor="white">
+							<Text style={styles.buttonText}> Search </Text>
+					</TouchableHighlight>
 			</View>
 		)
 		
