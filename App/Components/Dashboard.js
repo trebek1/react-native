@@ -19,6 +19,7 @@ var styles = StyleSheet.create({
 });
 
 export default class Dashboard extends Component {
+	
 	render(){
 		return (
 

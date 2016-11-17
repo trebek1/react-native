@@ -1,3 +1,4 @@
+
 export default api = {
 	getBio(username){
 		username = username.toLowerCase().trim(); 
@@ -11,4 +12,3 @@ export default api = {
 			return fetch(url).then((res) => res.json());
 	}
 }
-
